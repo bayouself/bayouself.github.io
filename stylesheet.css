@@ -561,7 +561,7 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 /* ============================================================
-   STICKY MOBILE CALL BUTTON
+   STICKY MOBILE CALL BAR — full-width, pinned to bottom edge
    ============================================================ */
 
 .mobile-call { display: none; }
@@ -571,38 +571,37 @@ img { display: block; max-width: 100%; height: auto; }
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.55rem;
+    gap: 0.6rem;
     position: fixed;
-    left: 1rem;
-    right: 1rem;
-    bottom: calc(0.9rem + env(safe-area-inset-bottom, 0px));
-    z-index: 50;
-    padding: 0.95rem 1.25rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    padding: 1rem 1.25rem;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
     background: var(--oak-deep);
     color: var(--paper);
     font-family: var(--ff-display);
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 1.05rem;
     letter-spacing: 0.01em;
     text-decoration: none;
-    border-radius: 999px;
-    box-shadow:
-      0 2px 0 rgba(28, 31, 20, 0.1),
-      0 14px 30px -10px rgba(28, 31, 20, 0.45);
-    transition: background 0.15s ease, transform 0.15s ease;
+    border-top: 1px solid rgba(245, 239, 226, 0.15);
+    box-shadow: 0 -6px 24px -10px rgba(28, 31, 20, 0.4);
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.15s ease;
   }
 
   .mobile-call:hover,
-  .mobile-call:focus-visible { background: var(--clay); color: var(--paper); }
-  .mobile-call:active { transform: translateY(1px); }
+  .mobile-call:focus-visible,
+  .mobile-call:active { background: var(--clay); color: var(--paper); }
 
   .mobile-call-icon {
     display: inline-flex;
-    font-size: 1.1rem;
-    transform: translateY(-1px);
+    font-size: 1.15rem;
   }
 
-  body { padding-bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px)); }
+  body { padding-bottom: calc(3.75rem + env(safe-area-inset-bottom, 0px)); }
 }
 
 /* ============================================================
