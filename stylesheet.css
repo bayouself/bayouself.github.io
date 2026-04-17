@@ -153,15 +153,11 @@ img { display: block; max-width: 100%; height: auto; }
   border-bottom-color: var(--clay);
 }
 
-.utility-sep { color: var(--rule-strong); margin: 0 0.5rem; }
-.utility-fax { color: var(--muted); font-style: italic; font-size: 0.88rem; }
-
 @media (max-width: 560px) {
   .utility-inner { padding: 0.6rem var(--pad); gap: 0.75rem; }
   .utility-mark { height: 26px; }
   .utility-wordmark { font-size: 0.9rem; }
   .utility-wordmark em { display: none; }
-  .utility-sep, .utility-fax { display: none; }
 }
 
 @media (max-width: 380px) {
@@ -293,7 +289,16 @@ img { display: block; max-width: 100%; height: auto; }
   width: 100%;
   aspect-ratio: 1504 / 600;
   object-fit: cover;
+  object-position: center;
   filter: saturate(0.92) contrast(1.02);
+}
+
+@media (max-width: 720px) {
+  .hero-figure img { aspect-ratio: 5 / 3; }
+}
+
+@media (max-width: 480px) {
+  .hero-figure img { aspect-ratio: 4 / 3; }
 }
 
 /* ============================================================
@@ -313,17 +318,6 @@ img { display: block; max-width: 100%; height: auto; }
 .section-head {
   max-width: 46rem;
   margin-bottom: clamp(2rem, 4vw, 3rem);
-}
-
-.section-num {
-  display: inline-block;
-  font-family: var(--ff-display);
-  font-style: italic;
-  font-weight: 400;
-  font-size: 0.9rem;
-  letter-spacing: 0.04em;
-  color: var(--clay);
-  margin-bottom: 1rem;
 }
 
 .section-head h2 {
@@ -556,6 +550,60 @@ img { display: block; max-width: 100%; height: auto; }
 }
 
 .site-footer p { margin: 0; }
+
+.site-footer-fax {
+  margin-top: 0.6rem !important;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: var(--rule-strong);
+  font-style: italic;
+  text-transform: none;
+}
+
+/* ============================================================
+   STICKY MOBILE CALL BUTTON
+   ============================================================ */
+
+.mobile-call { display: none; }
+
+@media (max-width: 720px) {
+  .mobile-call {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    position: fixed;
+    left: 1rem;
+    right: 1rem;
+    bottom: calc(0.9rem + env(safe-area-inset-bottom, 0px));
+    z-index: 50;
+    padding: 0.95rem 1.25rem;
+    background: var(--oak-deep);
+    color: var(--paper);
+    font-family: var(--ff-display);
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    border-radius: 999px;
+    box-shadow:
+      0 2px 0 rgba(28, 31, 20, 0.1),
+      0 14px 30px -10px rgba(28, 31, 20, 0.45);
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+
+  .mobile-call:hover,
+  .mobile-call:focus-visible { background: var(--clay); color: var(--paper); }
+  .mobile-call:active { transform: translateY(1px); }
+
+  .mobile-call-icon {
+    display: inline-flex;
+    font-size: 1.1rem;
+    transform: translateY(-1px);
+  }
+
+  body { padding-bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px)); }
+}
 
 /* ============================================================
    MOTION — one-time, respectful page-load reveal
