@@ -135,8 +135,17 @@ img { display: block; max-width: 100%; height: auto; }
   font-weight: 500;
   text-decoration: none;
   color: var(--oak-deep);
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid var(--rule-strong);
+  padding-bottom: 2px;
   transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.utility-phone::before {
+  content: "☏ ";
+  display: inline-block;
+  margin-right: 0.15em;
+  color: var(--clay);
+  transform: translateY(-1px);
 }
 
 .utility-phone:hover {
@@ -395,31 +404,35 @@ img { display: block; max-width: 100%; height: auto; }
   font-size: 0.98rem;
 }
 
+.sm-hide { display: inline; }
+
 @media (max-width: 560px) {
+  .sm-hide { display: none; }
+
   .rates-table { table-layout: fixed; width: 100%; }
 
   .rates-table thead th,
-  .rates-table tbody td { padding: 0.85rem 0.35rem; }
+  .rates-table tbody td { padding: 0.85rem 0.45rem; }
 
   .rates-table thead th {
-    font-size: 0.62rem;
-    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
   }
 
   .rates-table tbody td {
-    font-size: 0.95rem;
+    font-size: 1rem;
     white-space: nowrap;
   }
 
   .rates-table thead th:first-child,
-  .rates-table tbody td:first-child { width: 36%; }
+  .rates-table tbody td:first-child { width: 38%; }
 }
 
 @media (max-width: 380px) {
-  .rates-table thead th { font-size: 0.58rem; letter-spacing: 0.08em; }
-  .rates-table tbody td { font-size: 0.88rem; }
+  .rates-table thead th { font-size: 0.68rem; letter-spacing: 0.1em; }
+  .rates-table tbody td { font-size: 0.95rem; }
   .rates-table thead th,
-  .rates-table tbody td { padding: 0.75rem 0.25rem; }
+  .rates-table tbody td { padding: 0.75rem 0.3rem; }
 }
 
 /* ============================================================
